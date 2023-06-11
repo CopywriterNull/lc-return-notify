@@ -6,17 +6,12 @@ const nodeEnv = process.env.NODE_ENV;
 const mySetting = process.env.MY_SETTING;
 const version = 4;
 
-// setup express
 const app = express();
 app.use(express.json());
 const path = require('path');
 
-// Define the route for the root URL
 app.get('/', (req, res) => {
-  // Use the path module to get the absolute path of index.html
   const indexPath = path.join(__dirname, 'index.html');
-
-  // Send the index.html file as the response
   res.sendFile(indexPath);
 });
 
@@ -44,11 +39,9 @@ app.get('/api/albums/:id', (req, res) => {
 app.post('/api/albums', (req, res) => {
     const {title, artist} = req.body;
 
-    // validate required fields
     if (!title || typeof title !== 'string') return res.status(400).send('Invalid required field: title (string)');
     if (!artist || typeof artist !== 'string') return res.status(400).send('Invalid required field: artist (string)');
 
-    // create and insert album
     const album = {
         id: uuidv4(),
         title,
@@ -82,7 +75,6 @@ app.get('/api/healthcheck', (req, res) => {
     });
 });
 
-// Stops server with this method is called, only for demo purposes.
 // DO NOT USE in actual production server
 app.get('/api/stopserver', (req, res) => {
     process.exit(1);
