@@ -9,10 +9,15 @@ const version = 4;
 // setup express
 const app = express();
 app.use(express.json());
+const path = require('path');
 
-// Route handler for the root URL
+// Define the route for the root URL
 app.get('/', (req, res) => {
-  res.sendFile(path.join('public', 'index.html'));
+  // Use the path module to get the absolute path of index.html
+  const indexPath = path.join(__dirname, 'index.html');
+
+  // Send the index.html file as the response
+  res.sendFile(indexPath);
 });
 
 // save albums in memory
