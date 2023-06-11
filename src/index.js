@@ -1,6 +1,6 @@
 import express from 'express';
 import { v4 as uuidv4 } from 'uuid';
-
+import path from 'path';
 // get environment variables
 const port = process.env.PORT || 3000;
 const nodeEnv = process.env.NODE_ENV;
@@ -9,7 +9,6 @@ const version = 4;
 
 // setup express
 const app = express();
-const path = require('path');
 app.use(express.json());
 
 // Serve static files from the 'public' directory
