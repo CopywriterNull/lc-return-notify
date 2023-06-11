@@ -1,6 +1,5 @@
 import express from 'express';
 import { v4 as uuidv4 } from 'uuid';
-import path from 'path';
 // get environment variables
 const port = process.env.PORT || 3000;
 const nodeEnv = process.env.NODE_ENV;
@@ -12,11 +11,11 @@ const app = express();
 app.use(express.json());
 
 // Serve static files from the 'public' directory
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join('public')));
 
 // Route handler for the root URL
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join('public', 'index.html'));
 });
 
 // save albums in memory
