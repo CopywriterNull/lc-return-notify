@@ -22,6 +22,8 @@ app.post('/track', (req, res) => {
     if (!trackingId) return res.status(400).send('Invalid required field: tracking ID (json)');
     const trackingData = JSON.parse(fs.readFileSync('tracking.json'));
     trackingData.trackingId = trackingId;
+    fs.writeFileSync('tracking.json', JSON.stringify(trackingData, null, 2));
+    res.send('Tracking ID added successfully');
 });
 
 
