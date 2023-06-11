@@ -1,5 +1,4 @@
-{
-  "name": "heroku",
+{  "name": "heroku",
   "version": "1.0.0",
   "description": "A simple Node API used to demonstrate how to setup a deployment pipeline from GitHub to Heroku.",
   "main": "src/index.cjs",
@@ -12,11 +11,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2",
-    "uuid": "^8.3.2"
+     "express": "^4.18.2",
+   "uuid": "^8.3.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.19"
   },
   "keywords": []
+n": "^2.0.19"
+  }
 }
