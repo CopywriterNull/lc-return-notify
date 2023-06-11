@@ -14,12 +14,9 @@ app.use(express.json());
 ////////////////////////////////////////////////////////////////////////////////
 // Define the route for the root URL
 app.get('/', (req, res) => {
-  // Use the join() function from the path module to get the absolute path of index.html
-  const indexPath = join(__dirname, 'public', 'index.html');
-
-  // Send the index.html file as the response
-  res.sendFile(indexPath);
-});
+    // `__dirname` contains the directory that this code is in.
+    res.sendFile(`${__dirname}/index.html`);
+  });
 
 ////////////////////////////////////////////////////////////////////////////////
 
