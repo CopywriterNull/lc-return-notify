@@ -1,5 +1,7 @@
 import express from 'express';
 import { v4 as uuidv4 } from 'uuid';
+import { join } from 'path';
+
 // get environment variables
 const port = process.env.PORT || 3000;
 const nodeEnv = process.env.NODE_ENV;
@@ -8,12 +10,35 @@ const version = 4;
 
 const app = express();
 app.use(express.json());
-const path = require('path');
 
+////////////////////////////////////////////////////////////////////////////////
+// Define the route for the root URL
 app.get('/', (req, res) => {
-  const indexPath = path.join(__dirname, 'index.html');
+  // Use the join() function from the path module to get the absolute path of index.html
+  const indexPath = join(__dirname, 'public', 'index.html');
+
+  // Send the index.html file as the response
   res.sendFile(indexPath);
 });
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // save albums in memory
 let albums = [{
