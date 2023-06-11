@@ -2,44 +2,27 @@ import express from 'express';
 import { v4 as uuidv4 } from 'uuid';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
+import fs from 'fs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-console.log(__dirname);
-
-// get environment variables
 const port = process.env.PORT || 3000;
 const nodeEnv = process.env.NODE_ENV;
 const mySetting = process.env.MY_SETTING;
 const version = 4;
-
 const app = express();
 app.use(express.json());
 
-////////////////////////////////////////////////////////////////////////////////
-// Define the route for the root URL
 app.get('/', (req, res) => {
-    // `__dirname` contains the directory that this code is in.
     res.sendFile(`${__dirname}/index.html`);
   });
 
-////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+app.post('/track', (req, res) => {
+    const { trackingId } = req.body;
+    if (!trackingId) return res.status(400).send('Invalid required field: tracking ID (json)');
+    const trackingData = JSON.parse(fs.readFileSync('tracking.json'));
+    trackingData.trackingId = trackingId;
+});
 
 
 // save albums in memory
