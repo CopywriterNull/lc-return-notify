@@ -10,9 +10,6 @@ const version = 4;
 const app = express();
 app.use(express.json());
 
-// Serve static files from the 'public' directory
-app.use(express.static(path.join('public')));
-
 // Route handler for the root URL
 app.get('/', (req, res) => {
   res.sendFile(path.join('public', 'index.html'));
