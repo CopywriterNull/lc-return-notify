@@ -1,0 +1,18 @@
+save folder:
+git add .
+git commit -m "msg"
+git push origin main
+
+clone repo:
+git clone https://github.com/repo/xyz.git
+
+deploy server
+git push heroku main (deploys server)
+
+GET api.shipengine.com/v1/tracking?carrier_code=fedex&tracking_number=772217579740
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko
+Pragma: no-cache
+Accept: */*
+API-Key: 9PqO/fXa9kfzD8/vFzjK2q6RP1KuzVeA18NJmbWXjIA
+
+
