@@ -2,7 +2,7 @@ import express from 'express';
 import { v4 as uuidv4 } from 'uuid';
 import { join } from 'path';
 
-console.log(__dirname_);
+console.log(__dirname);
 // get environment variables
 const port = process.env.PORT || 3000;
 const nodeEnv = process.env.NODE_ENV;
